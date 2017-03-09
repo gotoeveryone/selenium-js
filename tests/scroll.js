@@ -1,3 +1,4 @@
+const common = require('./common');
 const {webdriver, promise, Builder, By, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const path = require('chromedriver').path;
@@ -35,17 +36,20 @@ driver.get(url).then(() => {
         return driver.executeScript('return document.body.scrollHeight;').then((height) => {
             return driver.executeScript('return window.innerHeight;').then((inner) => {
                 const bottom = scrollTop + inner;
-                if (bottom < height) {
-                    console.log('scrollTop: ' + scrollTop);
-                    console.log('scrollBottom: ' + bottom);
-                    console.log('height: ' + height);
-                    // 今の高さを算出
-                    scrollTop = bottom;
-                    return driver.executeScript(`window.scrollTo(0, ${scrollTop});`);
-                }
-                return promise.fullyResolved(0);
+                return driver.takeScreenshot().then((pic) => {
+                    common.writeScreenshot(pic, `test_${scrollTop}_${bottom}`);
+                }).then(() => {
+                    if (bottom <= height) {
+                        console.log('scrollTop: ' + scrollTop);
+                        console.log('scrollBottom: ' + bottom);
+                        console.log('height: ' + height);
+                        // 今の高さを算出
+                        scrollTop = bottom;
+                        return driver.executeScript(`window.scrollTo(0, ${scrollTop});`);
+                    }
+                    return promise.fullyResolved(0);
+                });
             });
         }).then(loop);
     })();
-    // debugger;
 }).then(_ => driver.quit());
