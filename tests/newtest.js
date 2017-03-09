@@ -7,7 +7,7 @@ chrome.setDefaultService(service);
 
 const driver = new Builder()
     .forBrowser('chrome')
-    .setChromeOptions(new chrome.Options().setChromeBinaryPath('/Program Files/SRWare Iron (64-Bit)/chrome.exe'))
+    .setChromeOptions(new chrome.Options().setChromeBinaryPath('chrome path'))
     .build();
 
 // let cnt = 0;

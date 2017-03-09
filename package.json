@@ -1,5 +1,5 @@
 {
-  "name": "protractor-test",
+  "name": "selenium-js",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -7,10 +7,12 @@
   "scripts": {
     "update": "./node_modules/.bin/webdriver-manager update",
     "protractor": "./node_modules/.bin/protractor --version",
-    "test": "./node_modules/.bin/protractor ./conf.js"
+    "protractor-test": "./node_modules/.bin/protractor ./conf.js",
+    "chrome-install": "node ./node_modules/chromedriver/install.js",
+    "test": "node ./tests/newtest.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "k2ss",
+  "license": "MIT",
   "devDependencies": {
     "bluebird": "^3.5.0",
     "chromedriver": "^2.27.3",
