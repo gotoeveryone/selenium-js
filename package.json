@@ -9,7 +9,7 @@
     "protractor": "./node_modules/.bin/protractor --version",
     "protractor-test": "./node_modules/.bin/protractor ./conf.js",
     "chrome-install": "node ./node_modules/chromedriver/install.js",
-    "test": "node ./tests/newtest.js"
+    "test": "node ./tests/scroll.js"
   },
   "author": "k2ss",
   "license": "MIT",

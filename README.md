@@ -10,5 +10,5 @@ $ npm run chrome-install
 ## 実行
 
 ```sh
-$ npm run <scriptname>
+$ npm run <scriptname> <binarypath> <url>
 ```
