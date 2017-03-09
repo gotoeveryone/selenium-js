@@ -1,0 +1,20 @@
+{
+  "name": "protractor-test",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "conf.js",
+  "scripts": {
+    "update": "./node_modules/.bin/webdriver-manager update",
+    "protractor": "./node_modules/.bin/protractor --version",
+    "test": "./node_modules/.bin/protractor ./conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "chromedriver": "^2.27.3",
+    "protractor": "^5.1.1",
+    "selenium-webdriver": "^3.3.0"
+  }
+}
